@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import MyMap from '@/components/MyMap'
 import ElementUITest from '@/components/ElementUITest'
+import Introduction from '@/components/Introduction'
 
 Vue.use(Router)
 const router = new Router({
@@ -17,6 +18,11 @@ const router = new Router({
       path: '/hello',
       name: 'HelloWorld',
       component: HelloWorld
+    },
+    {
+      path: '/intro',
+      name: 'Introduction',
+      component: Introduction
     },
     {
       path: '/map',

@@ -5,32 +5,32 @@
       <el-aside width="200px" style="background-color: rgb(238,241,246)">
         <el-menu :default-openeds="['1', '2', '3']">
           <el-submenu index="1">
-            <template slot="title"><i class="el-icon-message"></i>导航一</template>
+            <template slot="title"><i class="el-icon-s-home"></i>导航一</template>
             <el-menu-item-group>
               <template solt="title">分组一</template>
-              <el-menu-item index="1-1" @click="gotoHelloworld">Hello World</el-menu-item>
-              <el-menu-item index="1-2">Introduction</el-menu-item>
+              <el-menu-item index="1-1" @click="gotoHelloworld"><b>Hello World</b></el-menu-item>
+              <el-menu-item index="1-2" @click="gotoIntro"><b>Introduction</b></el-menu-item>
             </el-menu-item-group>
             <el-menu-item-group>
               <template solt="title">分组二</template>
-              <el-menu-item index="1-3">选项3</el-menu-item>
-              <el-menu-item index="1-4">选项4</el-menu-item>
+              <el-menu-item index="1-3"><b>选项3</b></el-menu-item>
+              <el-menu-item index="1-4"><b>选项4</b></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title"><i class="el-icon-menu"></i>导航二</template>
             <el-menu-item-group>
               <template solt="title">分组一</template>
-              <el-menu-item index="2-1" @click="gotoLeaflet">Leaflet</el-menu-item>
-              <el-menu-item index="2-2" @click="gotoEUITest">ElementUITest</el-menu-item>
+              <el-menu-item index="2-1" @click="gotoLeaflet"><b>Leaflet</b></el-menu-item>
+              <el-menu-item index="2-2" @click="gotoEUITest"><b>ElementUITest</b></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="3">
             <template slot="title"><i class="el-icon-setting"></i>导航三</template>
             <el-menu-item-group>
               <template solt="title">分组一</template>
-              <el-menu-item index="3-1">选项1</el-menu-item>
-              <el-menu-item index="3-2">选项2</el-menu-item>
+              <el-menu-item index="3-1"><b>选项1</b></el-menu-item>
+              <el-menu-item index="3-2"><b>选项2</b></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
@@ -63,8 +63,13 @@ export default {
     }
   },
   methods: {
+    // 进入HelloWorld界面
     gotoHelloworld () {
       this.$router.push({path: '/hello'})
+    },
+    // 进入introduction显示界面
+    gotoIntro () {
+      this.$router.push({path: '/intro'})
     },
     // 进入leaflet显示界面
     gotoLeaflet () {
@@ -83,9 +88,9 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 1px;
 }
   .el-header {
     background-color: #B3C0D1;

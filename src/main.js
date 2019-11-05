@@ -7,6 +7,7 @@ import ElementUI from 'element-ui'
 import * as L from 'leaflet'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'leaflet/dist/leaflet.css'
+import 'github-markdown-css'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)

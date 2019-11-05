@@ -76,6 +76,22 @@ export default {
     map.on('click', onClick)
     map.on('dbclick', onDoubleClick)
     map.on('mousemove', onMove)
+    // if (navigator.geolocation) {
+    //   console.log('/* 地理位置服务可用*/')
+    //   navigator.geolocation.getCurrentPosition(h5ApiSuccess, h5ApiError)
+    // } else {
+    //   console.log('/* 地理位置服务不可用*/')  
+    // }
+    // const h5ApiSuccess = (position) => {
+    //   // 纬度
+    //   let latitude = position.coords.latitude
+    //   //经度
+    //   let longitude = position.coords.longitude
+    //   console.log('你的经度纬度分别是' + longitude + ',' + latitude + '。')
+    // }
+    // const h5ApiError = () => {
+    //   console.log('/*请求位置失败*/')
+    // }
   }
 }
 </script>
