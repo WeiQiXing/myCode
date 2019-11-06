@@ -2,7 +2,7 @@
   <div class='intro'>
     <p align="left">本项目是在学习了前端一段时间后,对前面学习的知识的总结与记录。
       <br>主要用到的技术有：
-      如下：<br><b>  ·HTML</b>
+      <br><b>  ·HTML</b>
       <br><b>  ·CSS</b>
       <br><b>  ·JavaScript</b>
       <br><b>  ·Vue</b>
@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import md from './docs/HTML学习记录.md'
+import md from './docs/Vue学习记录.md'
 
 export default {
   name: 'Introduction',
