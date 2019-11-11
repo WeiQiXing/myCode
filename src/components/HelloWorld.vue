@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" align="center">
     <img src="./assets/logo.png">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
@@ -85,6 +85,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 export default {
   name: 'HelloWorld',
   data () {

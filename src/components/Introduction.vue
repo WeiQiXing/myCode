@@ -9,20 +9,21 @@
       <br><b>  ·Element-UI</b>
       <br><b>  ·Leaflet</b>
     </p>
-    <div class='markdown-body'><md></md></div>
+    <el-button @click="show1 = !show1">详细简介</el-button>
+    <transition name="el-zoom-in-center">
+      <div class='markdown-body' v-show="show1"><md></md></div>
+    </transition>
   </div>
 </template>
 
 <script>
-import md from './docs/Vue学习记录.md'
+import md from './docs/intro.md'
 
 export default {
   name: 'Introduction',
-  data () {
-    return {
-      msg: 'It is Intro HTML file'
-    }
-  },
+  data: () => ({
+    show1: false
+  }),
   components: {md}
 }
 </script>

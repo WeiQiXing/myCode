@@ -16,6 +16,7 @@
             <el-menu-item-group>
               <el-menu-item index="2-1" @click="gotoLeaflet"><b>Leaflet</b></el-menu-item>
               <el-menu-item index="2-2" @click="gotoEUITest"><b>ElementUITest</b></el-menu-item>
+              <el-menu-item index="2-3" @click="gotoMyForm"><b>MyForm</b></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
           <el-submenu index="3">
@@ -40,7 +41,10 @@
               <el-dropdown-item>功能三</el-dropdown-item>
             </el-dropdown-menu>
           </el-dropdown>
-          <span>魏琦星</span>
+          <el-button size="small" @click="drawer=true" >魏琦星</el-button>
+          <el-drawer title="标题" :visible.sync="drawer" :direction="direction" :before-close="handleClose">
+            <span>Come on</span>
+          </el-drawer>
         </el-header>
         <el-main>
           <canvas id="c_n23" width="100%" height="100%" style="position: fixed; top: 0px; left: 0px; z-index: -20; opacity: 0.7;"></canvas>
@@ -56,6 +60,8 @@ export default {
   name: 'App',
   data () {
     return {
+      drawer: false,
+      direction: 'rtl',
       msg: 'It is app'
     }
   },
@@ -95,6 +101,17 @@ export default {
     // 进入element-ui显示界面
     gotoJSruntime () {
       this.$router.push({path: '/runtime'})
+    },
+    // 进入myform显示界面
+    gotoMyForm () {
+      this.$router.push({path: '/form'})
+    },
+    handleClose (done) {
+      this.$confirm("确认关闭？")
+        .then( _ => {
+          done()
+        })
+        .catch( _ => {})
     }
   }
 }

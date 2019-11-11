@@ -9,10 +9,12 @@ import CSSrec from '@/components/CSSRec'
 import JSrec from '@/components/JSRec'
 import Vuerec from '@/components/VueRec'
 import JSrunrec from '@/components/JSruntimeRec'
+import MyForm from '@/components/Form'
 
 Vue.use(Router)
 const router = new Router({
-  mode: 'history',
+  // mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',
@@ -63,6 +65,11 @@ const router = new Router({
       path: '/runtime',
       name: 'JSrunrec',
       component: JSrunrec
+    },
+    {
+      path: '/form',
+      name: 'MyForm',
+      component: MyForm
     }
   ]
 })
