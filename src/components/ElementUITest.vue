@@ -11,7 +11,7 @@
       <img :src="item.idView" class="image">
     </el-carousel-item>
   </el-carousel>
-  <el-tabs type="border-card">
+  <el-tabs type="border-card" style="height: 300px">
     <el-tab-pane label="按钮">
       <el-row>
         <el-button icon="el-icon-search" circle></el-button>
@@ -63,9 +63,12 @@
         :on-remove="handleRemove"
         :file-list="fileList"
         list-type="picture">
-    <el-button size="small" type="primary">点击上传</el-button>
-    <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
-  </el-upload>
+      <el-button size="small" type="primary">点击上传</el-button>
+      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+    </el-upload>
+    </el-tab-pane>
+    <el-tab-pane label="图预览">
+      <el-image style="width: 100px; height: 100px" :src="url" :preview-src-list="srcList"></el-image>
     </el-tab-pane>
   </el-tabs>
   <el-steps :active="active" finish-status="success">
@@ -81,6 +84,15 @@
 export default {
   data () {
     return {
+      url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+      srcList: [
+        'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
+        'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg',
+        'https://fuss10.elemecdn.com/9/bb/e27858e973f5d7d3904835f46abbdjpeg.jpeg',
+        'https://fuss10.elemecdn.com/d/e6/c4d93a3805b3ce3f323f7974e6f78jpeg.jpeg',
+        'https://fuss10.elemecdn.com/3/28/bbf893f792f03a54408b3b7a7ebf0jpeg.jpeg',
+        'https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg'
+      ],
       imgList: [
         {id: 0, idView: require('./assets/logo.png')},
         {id: 1, idView: require('./assets/logo.png')},
