@@ -20,7 +20,7 @@
 
 - Vue router是vue.js官方的路由管理器，它和vue.js的核心深度集成，让构建单页面应用变得易如反掌。使用vue.js,我们可用通过组合组件来组成应用程序，当你要把vue router添加进来，我们需要做的是，将组件（components）映射到路由（routes），然后告诉vue router在哪里渲染它们。
 
-  <router-link>是一个组件，该组件用于设置一个导航链接，切换不同的HTML内容，to属性是目标地址，即要显示的内容。
+  \<router-link>是一个组件，该组件用于设置一个导航链接，切换不同的HTML内容，to属性是目标地址，即要显示的内容。
 
   replace属性，当点击的时候会调用router.replace()而不是router.push(),导航后不会留下history记录。
 
@@ -30,7 +30,7 @@
   <router-link :to="{path: 'relative/path'}"append></router-link>
   ```
 
-  tag属性，如果想要渲染某种标签，例如<li>，于是使用tag prop类指定何种标签，同样它还是会监听点击，触发导航。
+  tag属性，如果想要渲染某种标签，例如\<li>，于是使用tag prop类指定何种标签，同样它还是会监听点击，触发导航。
 
   ```
   <router-link :to="/foo" tag="li">foo</router-link>

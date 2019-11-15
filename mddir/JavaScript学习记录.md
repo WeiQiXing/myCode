@@ -2,11 +2,11 @@
 
 ## 1、JavaScript简介
 
-JavaScript是一种轻量级的变成语言，可插入HTML页面的编程代码。同时，HTML中的脚本必须位于<script>与</script>标签之间，脚本可以被放置在HTML页面的<body>和<head>部分中。HTML文件中对脚本的数量没有限制。通常情况下，把函数放入<head>部分中，或者放在页面底部。
+JavaScript是一种轻量级的变成语言，可插入HTML页面的编程代码。同时，HTML中的脚本必须位于\<script>与\</script>标签之间，脚本可以被放置在HTML页面的\<body>和\<head>部分中。HTML文件中对脚本的数量没有限制。通常情况下，把函数放入\<head>部分中，或者放在页面底部。
 
 我们也可以把脚本保存到外部文件中。外部文件通常包含被多个网页使用的代码，外部JavaScript文件的文件扩展名是.js
 
-如果使用外部文件，要在<script>标签的”scr"属性中设置该.js文件；
+如果使用外部文件，要在\<script>标签的”scr"属性中设置该.js文件；
 
 JavaScript是现代所有浏览器以及HTML5中的默认脚本语言。
 
