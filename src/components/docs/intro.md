@@ -67,7 +67,7 @@ JavaScript是一种直译式脚本语言，是一种动态类型、弱类型、�
 - Generator函数：ES6新引入了Generator函数，可以通过yield关键字，把函数的执行流挂起，为改变执行流程提供了可能，从而为异步编程提供解决方法。
   Generator有两个区分于普通函数的部分：1、在function后面，函数名之前有个*；2、函数内部有yield表达式。yield * 表达式表示yield返回一个遍历器对象，用于Generator函数内部，调用另一个Generator函数。
 
-- asyn函数：语法
+- async函数：语法
 
   ```
   async function name([param[,param[,...param]]]) { statements }

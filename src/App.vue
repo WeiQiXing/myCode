@@ -26,6 +26,7 @@
               <el-menu-item index="3-2" @click="gotoCSS"><b>CSS</b></el-menu-item>
               <el-menu-item index="3-3" @click="gotoJavaScript"><b>JavaScript</b></el-menu-item>
               <el-menu-item index="3-4" @click="gotoVue"><b>Vue</b></el-menu-item>
+              <el-menu-item index="3-4" @click="gotoNuxt"><b>Nuxt</b></el-menu-item>
               <el-menu-item index="3-5" @click="gotoJSruntime"><b>JSruntime</b></el-menu-item>
             </el-menu-item-group>
           </el-submenu>
@@ -97,6 +98,10 @@ export default {
     // 进入Vue显示界面
     gotoVue () {
       this.$router.push({path: '/vue'})
+    },
+    // 进入Nuxt显示界面
+    gotoNuxt () {
+      this.$router.push({path: '/nuxt'})
     },
     // 进入element-ui显示界面
     gotoJSruntime () {

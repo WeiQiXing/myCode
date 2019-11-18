@@ -8,6 +8,7 @@ import HTMLrec from '@/components/HTMLRec'
 import CSSrec from '@/components/CSSRec'
 import JSrec from '@/components/JSRec'
 import Vuerec from '@/components/VueRec'
+import Nuxtrec from '@/components/NuxtRec'
 import JSrunrec from '@/components/JSruntimeRec'
 import MyForm from '@/components/Form'
 
@@ -60,6 +61,11 @@ const router = new Router({
       path: '/vue',
       name: 'Vuerec',
       component: Vuerec
+    },
+    {
+      path: '/nuxt',
+      name: 'Nuxtrec',
+      component: Nuxtrec
     },
     {
       path: '/runtime',
