@@ -100,7 +100,7 @@ export default {
 <style scoped>
 #mapdiv {
   width: 100%;
-  height: 600px;
+  height: 790px;
 }
 h1, h2 {
   font-weight: normal;
