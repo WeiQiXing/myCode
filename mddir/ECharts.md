@@ -350,3 +350,102 @@ myChart.on('click', function (params) {
 chart.on(evenName,query,handler);
 query可为string或者Object
 ```
+#### 富文本标签
+富文本标签是在ECharts3.7以后才增加的功能，在之前的版本只能对整个块进行统一样式的设置，而且只可以设置字体和颜色，不易于制作表达能力更强的文字描述信息。
+富文本标签的作用：
+-  能够定制文本块整体的样式（如背景、边框、阴影等），位置、旋转等
+-  能够对文本块中个别片段定义样式（如颜色、字体、宽高、背景、阴影等）、对齐方式等
+-  能够在文本中使用图片做小图标或者背景。
+-  特定组合以上的规则，可以做出简单表格、分割线等效果。
+
+文本样式相关配置项：
+- 字体基本样式设置：fontStyle、fontWeight、fontSize、fontFamily。
+- 文字颜色：color。
+- 文字描边：textBorderColor、textBorderWidth。
+- 文字阴影：textShadowColor、textShadowBlur、textShadowOffsetX、textShadowOffsetY。
+- 文本块或文本片段大小：lineHeight、width、height、padding。
+- 文本块或文本片段的对齐：align、verticalAlign。
+- 文本块或文本片段的边框、背景（颜色或图片）：backgroundColor、borderColor、borderWidth、borderRadius。
+- 文本块或文本片段的阴影：shadowColor、shadowBlur、shadowOffsetX、shadowOffsetY。
+- 文本块的位置和旋转：position、distance、rotate。
+
+可以在各处的 rich 属性中定义文本片段样式。例如 series-bar.label.normal.rich
+```
+label: {
+    normal: {
+
+        // 在文本中，可以对部分文本采用 rich 中定义样式。
+        // 这里需要在文本中使用标记符号：
+        // `{styleName|text content text content}` 标记样式名。
+        // 注意，换行仍是使用 '\n'。
+        formatter: [
+            '{a|这段文本采用样式a}',
+            '{b|这段文本采用样式b}这段用默认样式{x|这段用样式x}'
+        ].join('\n'),
+
+        // 这里是文本块的样式设置：
+        color: '#333',
+        fontSize: 5,
+        fontFamily: 'Arial',
+        borderWidth: 3,
+        backgroundColor: '#984455',
+        padding: [3, 10, 10, 5],
+        lineHeight: 20,
+
+        // rich 里是文本片段的样式设置：
+        rich: {
+            a: {
+                color: 'red',
+                lineHeight: 10
+            },
+            b: {
+                backgroundColor: {
+                    image: 'xxx/xxx.jpg'
+                },
+                height: 40
+            },
+            x: {
+                fontSize: 18,
+                fontFamily: 'Microsoft YaHei',
+                borderColor: '#449933',
+                borderRadius: 4
+            },
+            ...
+        }
+    }
+}
+```
+##### ECharts示例一：[拖拽的实现](https://www.echartsjs.com/examples/zh/editor.html?c=line-draggable)
+作为交互式功能的典型体现，拖拽功能让我们可以使用鼠标拖拽图中曲线上的点，然后就能改变曲线的形状。
+##### ECharts示例二：[日历图](https://www.echartsjs.com/examples/zh/editor.html?c=calendar-simple)
+使用 ECharts 日历坐标绘制日历图时，支持自定义的各项属性:
+- range: 设置时间的范围，可支持某年、某月、某天，还可支持跨年
+- cellSize: 设置日历格的大小，可支持设置不同高宽，还可支持自适应auto
+- width、height: 也可以直接设置改日历图的整体高宽，让其基于已有的高宽全部自适应
+- orient: 设置坐标的方向，既可以横着也可以竖着
+- splitLine: 设置分隔线样式，也可以直接不显示
+- itemStyle: 设置日历格的样式，背景色、方框线颜色大小类型、透明度均可自定义，甚至还能加阴影
+- dayLabel: 设置坐标中 星期样式，可以设置星期从第几天开始，快捷设置中英文、甚至是自定义中英文混搭、或局部不显示、通过formatter 可以想怎么显示就怎么显示;
+- monthLabel: 设置坐标中 月样式，和星期一样，可快捷设置中英文和自定义混搭
+- yearLabel: 设置坐标中 年样式，默认显示一年，通过formatter 文字可以想显示什么就能通过string function任性自定义，上下左右方位随便选;
+
+##### 指定与取消ECharts数据图形高亮
+ECharts中支持的图表行为，通过dispatchAction触发。
+action.hightlight 高亮指定的数据图形
+通过seriesName或者seriesIndex指定系列，如果在要指定某个数据可以再指定dataIndex或者name
+```
+dispatchAction({
+    type: 'highlight',
+    // 可选，系列 index，可以是一个数组指定多个系列
+    seriesIndex?: number|Array,
+    // 可选，系列名称，可以是一个数组指定多个系列
+    seriesName?: string|Array,
+    // 可选，数据的 index
+    dataIndex?: number,
+    // 可选，数据的 名称
+    name?: string
+})
+```
+action.downplay 取消高亮指定的数据图形。
+通过seriesName或者seriesIndex指定系列，如果在要指定某个数据可以再指定dataIndex或者name
+

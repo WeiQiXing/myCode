@@ -1,4 +1,4 @@
-## WebGL API参考
+## SuperMapWebGL API参考
 
 ![image-20191129090832261](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20191129090832261.png)
 
@@ -367,11 +367,50 @@ removeAll(destroy) // 删除图层集合中的所有图层对象
 setSelectedLayer(layer) // 设置当前点击选中的S3M图层
 ```
 
+---
+#### Viewer
+new Cesium.Viewer(container, options)
+Viewer是用于构建应用程序的基础部件，它将所有标准的Cesium部件组合成一个可重复使用的包。
+Example：
+```
+//初始化viewer部件
+var viewer = new Cesium.Viewer('cesiumContainer', {
+    //使用 STK World Terrain
+    terrainProvider : new Cesium.CesiumTerrainProvider({
+        url : 'https://assets.agi.com/stk-terrain/world'
+    }),
+    //使用OpenStreetMaps
+    imageryProvider : Cesium.createOpenStreetMapImageryProvider({
+        url : 'https://a.tile.openstreetmap.org/'
+    }),
+});
 
+//添加基础拖放功能
+viewer.extend(Cesium.viewerDragDropMixin);
 
-
-
-
+//处理删除文件时遇到错误，显示弹出式警告。
+viewer.dropError.addEventListener(function(dropHandler, name, error) {
+    console.log(error);
+    window.alert(error);
+});
+```
+Members：
+	animation：Animation 获取动画部件
+	baseLayerPicker：BaseLayerPicker 获取基础图层拾取器对象
+	bottomContainer： Element 获取窗口底部包含CreditDisplay及其他潜在信息的DOM对象。
+	camera：Camera 获取相机对象
+	canvas： Canvas 获取画布对象
+	cesiumWidget：CesiumWidget 获取CesiumWidget对象
+	clock： Clock 获取时钟对象
+	container：Element 获取父容器
+	scene：Scene 获取场景对象
+	timeLine：Timeline 获取时间轴部件
+Methods：
+	destroy() 释放对象占用的资源。
+	extend(mixin,options) 使用提供的mixin来扩展基础viewer功能
+    flyTo(target,options)->Promise 相机飞向指定的实体、实体集或数据源。
+    forceResize() 强制重调，使得部件重新考虑包括部件大小、credit放置等布局。
+    render() 渲染场景
 
 
 
