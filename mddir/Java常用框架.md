@@ -202,3 +202,287 @@ public String getInfo(@PathVariable("param") Object param)
 
 
 
+## 人生苦短，Let‘s Go
+---
+Go是一个开源的编程语言，它能让构造简单、可靠且高效的软件变得容易。其用途：Go语言被设计成一门应用于搭载Web服务器，存储集群或类似用途的巨型中央服务器的系统编程语言。对于高性能分布式系统领域而言，Go语言无疑比大多数其它语言有着更高的开发效率。它提供了海量并行的支持，这对于游戏服务端的开发而言是再好不过了。
+特点：
+1. 简洁、快速、安全
+2. 并行、有趣、开源
+3. 内存管理、数组安全、编译迅速
+
+Go 语言最主要的特性：
+- 自动垃圾回收
+- 更丰富的内置类型
+- 函数多返回值
+- 错误处理
+- 匿名函数和闭包
+- 类型和接口
+- 并发编程
+- 反射
+- 语言交互性
+
+Go 语言的基础组成有以下几个部分：
+- 包声明
+- 引入包
+- 函数
+- 变量
+- 语句 & 表达式
+- 注释
+
+### 第一个Go程序
+hello.go
+```
+package main
+import "fmt"
+
+func main() {
+	fmt.Println("hello world!")
+}
+
+```
+	第一行代码 package main 定义了包名。你必须在源文件中非注释的第一行指明这个文件属于哪个包，如：package main。package main表示一个可独立执行的程序，每个 Go 应用程序都包含一个名为 main 的包。
+	下一行 import "fmt" 告诉 Go 编译器这个程序需要使用 fmt 包（的函数，或其他元素），fmt 包实现了格式化 IO（输入/输出）的函数。
+	下一行 func main() 是程序开始执行的函数。main 函数是每一个可执行程序所必须包含的，一般来说都是在启动后第一个执行的函数（如果有 init() 函数则会先执行该函数）。
+	下一行 /*...*/ 是注释，在程序执行时将被忽略。单行注释是最常见的注释形式，你可以在任何地方使用以 // 开头的单行注释。多行注释也叫块注释，均已以 /* 开头，并以 */ 结尾，且不可以嵌套使用，多行注释一般用于包的文档描述或注释成块的代码片段。
+	下一行 fmt.Println(...) 可以将字符串输出到控制台，并在最后自动增加换行字符 \n。
+	使用 fmt.Print("hello, world\n") 可以得到相同的结果。
+	Print 和 Println 这两个函数也支持使用变量，如：fmt.Println(arr)。如果没有特别指定，它们会以默认的打印格式将变量 arr 输出到控制台。
+	当标识符（包括常量、变量、类型、函数名、结构字段等等）以一个大写字母开头，如：Group1，那么使用这种形式的标识符的对象就可以被外部包的代码所使用（客户端程序需要先导入这个包），这被称为导出（像面向对象语言中的 public）；标识符如果以小写字母开头，则对包外是不可见的，但是他们在整个包的内部是可见并且可用的（像面向对象语言中的 protected ）。
+运行方式： go run hello.go
+也可以使用go build命令来生成二进制。
+	注意：不能将**{**单独放在一行
+### Go 标记
+Go程序可以有多个标记组成，可以是关键字、标识符、常量、字符串、符号。
+在Go程序中，一行代表一个语句结束。每个语句不需要想C家族中的其他语言一样以分号；结尾，因为这些工作都将有Go编译器自动完成。
+注释不会被编译，每个包都应该有相关注释。
+单行注释是最常见的注释方式，也可以使用/**/ 
+标识符用来命名变量、类型等程序实体。一个标识符实际上就是一个或者是多个字母（A~Z和a~z）数字（0~9）、下划线（_）组成的序列，但是第一个字符必须是字母或是下划线而不能是数字。
+Go语言的字符串可以通过（+）实现
+下面列举了 Go 代码中会使用到的 25 个关键字或保留字：
+
+break	default	func	interface	select
+case	defer	go	map	struct
+chan	else	goto	package	switch
+const	fallthrough	if	range	type
+continue	for	import	return	var
+除了以上介绍的这些关键字，Go 语言还有 36 个预定义标识符：
+
+append	bool	byte	cap	close	complex	complex64	complex128	uint16
+copy	false	float32	float64	imag	int	int8	int16	uint32
+int32	int64	iota	len	make	new	nil	panic	uint64
+print	println	real	recover	string	true	uint	uint8	uintptr
+
+### Go语言数据类型
+在Go编程语言中，数据类型用于声明函数的变量。数据类型的出现时为了把数据分成所需内存大小不同的数据，编程的时候需要用大数据的时候才需要申请大内存，就可以充分利用内存了。
+数据类型：
+1. 布尔型 true或false，例如var b bool = true;
+2. 数字类型 整型int和浮点型float32、float64，并且支持复数，其中位的运算采用补码。
+3. 字符串类型 字符串可由单个字节连接起来
+4. 派生类型 ：
+	- 指针类型（Pointer）
+	- 数组类型
+	- 结构化类型（struct）
+	- Channel类型
+	- 函数类型
+	- 切片类型
+	- 接口类型（interface）
+	- Map类型
+
+###  Go语言变量与常量
+声明变量的一般形式是使用var关键字：
+```
+var identifier type
+var identifier1,identifier2 type
+```
+实例：
+```
+package main
+import "fmt"
+func main() {
+	var a string = "Runoob"
+	fmt.Println(a)
+	var b, c int = 1, 2
+	fmt.Println(b, c)
+}
+```
+也可以使用：=来自动判断类型
+常量中的数据类型只可以是布尔型、数字型（整数型、浮点型和复数）和字符串型。
+常量的定义格式：
+```
+const identifier [type] = value
+```
+iota,特殊常量，可以认为是一个可以被编译器修改的常量。
+### Go语言运算符
+- 算法运算符
+- 关系运算符
+- 逻辑运算符
+- 位运算符
+- 赋值运算符
+- 其他运算符
+
+条件语句基本与C无异，而循环语句有三种形式，只有其中的一种使用分号。
+```
+for init; condition; post { }
+for condition { }
+for { }
+```
+for循环的range格式可以对slice、map、数组、字符串等进行迭代循环，格式如下：
+```
+for key, value := range oldMap {
+	newMap[key] = value
+}
+```
+### Go语言函数与数组
+函数是基本的代码块，用于执行一个任务。
+Go语言最少有个main()函数，可以通过函数来划分不同功能，逻辑上每个函数执行的是指定的任务。
+函数声明告诉了编译器函数的名称，返回类型和参数。
+函数定义格式：
+```
+func function_name( [parameter list] ) [return_types] {
+	函数体
+}
+```
+数组是具有相同唯一类型的一组已编号且长度固定的数据项序列，这种类型可以是任意的原始类型例如整型、字符串或者自定义类型。
+语法格式：
+```
+var variable_name [SIZE] variable_type
+```
+### Go语言指针与结构体
+Go语言的取地址符是&，放到一个变量前使用就会返回相应变量的内存地址。
+一个指针变量指向了一个值的内存地址。
+类似于变量和创两，在使用变量前你需要声明指针：
+```
+var var_name *var-type
+```
+当一个指针被定义后没有分配到任何变量时，他的值为nil。
+nil指针也称为空指针，nil在概念上相当于其他语言的null、None、nil、NULL，都指代零值或空值。
+
+Go语言中数组可以存储同一类型的数据，但在结构体中我们可以为不同项定义不同的数据类型。
+结构体是由一系列具有相同类型或不同类型的数据构成的数据集合。
+结构体表示一项记录，比如保存图书馆的书籍记录，每本书有以下属性：
+- Title：标题
+- Author：作者
+- Subject：学科
+- ID：书籍ID
+定义结构体需要使用type和struct语句。struct语句定义一个新的数据类型，结构体中有一个或多个成员。type语句设定了结构体的名称。其格式如下：
+```
+type struct_variable_type struct {
+	member definition
+	member definition
+	...
+	member definition
+}
+```
+一旦定义了结构体类型，它就能用于变量的声明，语法格式如下：
+```
+variable_name := structure_variable_type { value1, value2...valuen}
+```
+访问结构体成员需要使用点号操作符
+### Go语言切片（Slice）
+Go语言切片是对数组的抽象，
+Go数组的长度不可改变，在特定场景中这样的集合就不适用了，Go中提供了一种灵活、功能强悍的内置类型切片（“动态数组”），与数组相比切片的长度是不固定的，可以追加元素，在追加时可能使切片的容量增大。
+**定义切片**：
+可以声明一个未指定大小的数组来定义切片：
+```
+var identifier []type
+```
+切片不需要说明长度或使用make()函数来创建切片：
+```
+var slice1 []type = make([]type, len)
+也可以简写为
+slice1 := make([]type, len)
+```
+也可以指定容量，其中capacity为可选参数。
+```
+make([]T, length, capacity)
+```
+### Go语言类型转换与接口
+类型转换用于将一种数据类型的变量转换为另外一种类型的变量。
+```
+type_name(expression)
+```
+Go 语言提供了另外一种数据类型即接口，它把所有的具有共性的方法定义在一起，任何其他类型只要实现了这些方法就是实现了这个接口。
+```
+/* 定义接口 */
+type interface_name interface {
+   method_name1 [return_type]
+   method_name2 [return_type]
+   method_name3 [return_type]
+   ...
+   method_namen [return_type]
+}
+
+/* 定义结构体 */
+type struct_name struct {
+   /* variables */
+}
+
+/* 实现接口方法 */
+func (struct_name_variable struct_name) method_name1() [return_type] {
+   /* 方法实现 */
+}
+...
+func (struct_name_variable struct_name) method_namen() [return_type] {
+   /* 方法实现*/
+}
+```
+### Go错误处理与并发
+Go 语言通过内置的错误接口提供了非常简单的错误处理机制。
+error类型是一个接口类型，这是它的定义：
+```
+type error interface {
+    Error() string
+}
+
+func Sqrt(f float64) (float64, error) {
+    if f < 0 {
+        return 0, errors.New("math: square root of negative number")
+    }
+    // 实现
+}
+
+result, err:= Sqrt(-1)
+
+if err != nil {
+   fmt.Println(err)
+}
+```
+Go 语言支持并发，我们只需要通过 go 关键字来开启 goroutine 即可。
+goroutine 是轻量级线程，goroutine 的调度是由 Golang 运行时进行管理的。
+goroutine 语法格式：
+```
+go 函数名( 参数列表 )
+go f(x, y, z)
+//开启一个新的 goroutine:
+f(x, y, z)
+```
+Go 允许使用 go 语句开启一个新的运行期线程， 即 goroutine，以一个不同的、新创建的 goroutine 来执行一个函数。 同一个程序中的所有 goroutine 共享同一个地址空间。
+
+通道（channel）是用来传递数据的一个数据结构。
+通道可用于两个 goroutine 之间通过传递一个指定类型的值来同步运行和通讯。操作符 <- 用于指定通道的方向，发送或接收。如果未指定方向，则为双向通道。
+示例：
+```
+package main
+
+import "fmt"
+
+func sum(s []int, c chan int) {
+        sum := 0
+        for _, v := range s {
+                sum += v
+        }
+        c <- sum // 把 sum 发送到通道 c
+}
+
+func main() {
+        s := []int{7, 2, 8, -9, 4, 0}
+
+        c := make(chan int)
+        go sum(s[:len(s)/2], c)
+        go sum(s[len(s)/2:], c)
+        x, y := <-c, <-c // 从通道 c 中接收
+
+        fmt.Println(x, y, x+y)
+}
+```
+
